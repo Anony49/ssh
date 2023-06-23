@@ -1,11 +1,11 @@
-FROM ubuntu:22.04
+FROM debian:11.7
 RUN apt update -y > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1 && apt install locales -y \
 && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 RUN apt install ssh wget unzip -y > /dev/null 2>&1
 RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
 RUN unzip ngrok.zip
-RUN echo "./ngrok config add-authtoken 2RZR5SDlRAhamCKbstgVhjKjhZ9_2m7pjNqvDvxELEipMZrBF &&" >>/1.sh
+RUN echo "./ngrok config add-authtoken 2RbyLvifKBkIZWwBktoBSSDTz65_6mJWppe6z6PmkkkaCkuNn &&" >>/1.sh
 RUN echo "./ngrok tcp 22 &>/dev/null &" >>/1.sh
 RUN mkdir /run/sshd
 RUN echo '/usr/sbin/sshd -D' >>/1.sh
